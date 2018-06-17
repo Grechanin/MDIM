@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Дизайнерская студия, лучшие цены на услуги дизайнера в Украине, Дизайн интерьера - заказать проект для дома и офиса - Igor Smolinskiy Architects">
+    <meta name="author" content="Igor Smolinskiy">
+    <link rel="icon" href="{{ favicon.favicon.url }}">
+
+    <title>{% block head_title %} MDIM {% endblock head_title %}</title>
+
+    {% include 'head_css.html' %}
+
+  </head>
+
+  <body>
+
+   <!--  <div class="preloader">
+      <div class="loader"></div>
+    </div> -->
+    
+    <div class="main-container">
+    {% include 'navbar.html' %}
+
+    {% block carousel %}
+
+    {% endblock carousel %}
+
+    {% block sub_nav_bar %}
+
+    {% endblock sub_nav_bar %}
+
+      <main role="main">
+
+        {% block breadcrumb %}
+
+        {% endblock breadcrumb %}
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        {% block jumbotron_content %}
+
+        {% endblock jumbotron_content %}
+
+
+        {% block content %}
+
+        {% endblock content %}
+
+
+      </main>
+
+    {% include 'footer.html' %}
+    </div>
+
+   {% include 'js.html' %}
+
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+  </body>
+</html>

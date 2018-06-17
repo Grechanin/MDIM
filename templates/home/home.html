@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Welcome | {{ block.super }} {% endblock %}
+
+
+{% block carousel %}
+
+  {% include 'home/carousel.html' %}
+
+{% endblock carousel %}
+
+
+{% block jumbotron_content %}
+
+  {% include 'home/jumbotron_content.html' %}
+
+{% endblock jumbotron_content %}
+
+
+
+{% block content %}
+
+  {% include 'home/last_projects.html' %}
+
+{% endblock content %}

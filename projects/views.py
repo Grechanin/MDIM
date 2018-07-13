@@ -31,7 +31,9 @@ def projects(request):
 def project_detail(request, id=None):
 	categories = ProjectCategory.objects.filter(is_active=True)
 	project = get_object_or_404(Project, id=id)
-	share_string = quote_plus("Проект ") + quote_plus(project.name) + quote_plus(" ") + quote_plus(project.short_description)
+	share_string = quote_plus("Проект ") + quote_plus(project.name)
+	if project.short_description:
+		share_string = quote_plus("Проект ") + quote_plus(project.name) + quote_plus(" ") + quote_plus(project.short_description)
 	context = {
 			'categories': categories,
 			'project': project,

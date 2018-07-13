@@ -1,6 +1,23 @@
+from phonenumber_field.modelfields import PhoneNumberField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
+
+class OrderModel(models.Model):
+    order_name = models.CharField("Послуга", max_length=32, blank=False, null=False, default=None)
+    client_name = models.CharField("Ім'я", max_length=128, blank=False, null=False, default=None)
+    phone_number = PhoneNumberField("Номер телефону", max_length=128, blank=False, null=False, default=None)
+    email = models.EmailField(max_length=128, blank=True, null=True, default=None)
+    coment = models.TextField("Коментар", blank=True, null=True, default=None)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    update = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def __str__(self):
+        return ("%s") % self.client_name
+
+    class Meta:
+        verbose_name = 'Замовлення'
+        verbose_name_plural = 'Замовлення'
 
 class Prices(models.Model):
     title = models.CharField(max_length=128, blank=True, null=True, default=None)

@@ -844,3 +844,99 @@ p {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
 }
+
+/*International telephone input*/
+.iti-flag {background-image: url("../img/flags.png");}
+ 
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .iti-flag {background-image: url("../img/flags@2x.png");}
+}
+
+.intl-tel-input.allow-dropdown {
+    width: 100%;
+}
+
+/*Order Form*/
+.form-container {
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.form-container {
+    width: 500px;
+    border: 1px solid;
+    background-color: #fbfbfb;
+}
+
+p input {
+    width: 100%;
+    font-family: 'El Messiri',sans-serif;
+    border-radius: 5px;
+    border-color: rgba(169, 169, 169, 0.19);
+    height: 32px;
+    border: 1px solid #ccc;
+}
+
+p label {
+    font-family: 'El Messiri',sans-serif;
+}
+
+
+.modal-container {
+  max-width: 800px;
+  }
+
+.button_white-grey {
+    color: #202020;
+    background: #fbfbfb;
+    border: 1px solid #ccc;
+}
+
+.button_white-grey:hover {
+    color: #202020;
+    background: #e6e6e6;
+    border-color: #e6e6e6;
+}
+
+.button {
+    margin-top: 15px;
+    padding: 14px 28px;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    transition: background-color .2s ease,border .2s ease,color .2s ease,opacity .2s ease-in-out,outline .2s ease;
+}
+
+button, input, select, textarea {
+    font-family: 'El Messiri',sans-serif;;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.form-container textarea {
+    display: block;
+    width: 100%;
+    height: 62px;
+    padding: 10px;
+    overflow: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 3px;
+}
+
+form input {
+    padding: 10px;
+}
+
+/*form input:last-child {
+    float: right;
+}*/
+
+.erorr-input-field {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+

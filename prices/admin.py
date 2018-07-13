@@ -32,3 +32,11 @@ class ProiceCategoryDescriptionAdmin(admin.ModelAdmin):
 admin.site.register(ProiceCategoryDescription, ProiceCategoryDescriptionAdmin)
 
 
+class OrderModelAdmin(admin.ModelAdmin):
+    list_display = [ field.name for field in OrderModel._meta.fields]
+
+    class Meta:
+        model = OrderModel
+
+
+admin.site.register(OrderModel, OrderModelAdmin)

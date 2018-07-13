@@ -23,12 +23,12 @@
 
     <script>
     	
+        NProgress.configure({ showSpinner: false });
     	NProgress.start();
 
     	$(window).on ("load", function () {
     		setTimeout (function() {
     			NProgress.done();
-	    		console.log( "loaded!" );
 	    		},
 	    	700);
     	});

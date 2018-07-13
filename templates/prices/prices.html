@@ -67,6 +67,7 @@
                         <div class="col-md-6">
                         <h3>{{ des.title }}</h3>
                         <p>{{ des.description|safe }}</p>
+                        <a data-fancybox data-type="ajax" data-src="{% url 'prices:order' %}" href="javascript:;" data-service="{{ des.title }}" class="btn btn-primary btn-order">Замовити</a>
                         </div>
                         {% endif %}
                         
@@ -83,6 +84,7 @@
                         <div class="col-md-6">
                         <h3>{{ des.title }}</h3>
                         <p>{{ des.description|safe }}</p>
+                        <a data-fancybox data-type="ajax" data-src="{% url 'prices:order' %}" href="javascript:;" data-service="{{ des.title }}" class="btn btn-primary btn-order">Замовити</a>
                         </div>
                         {% endif %}
                         
@@ -104,3 +106,15 @@
 
 
 {% endblock content %}
+
+{% block script %}
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".btn-order").on("click", function(){
+      service = $(this).attr("data-service");
+    })
+  })
+</script>
+
+{% endblock script %}

@@ -20,10 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'vb$5-40+!kumgz6t4mk-oh8e9b5(bjju5s(!$%*gn7ovft-=l*'
+# SECRET_KEY = 'vb$5-40+!kumgz6t4mk-oh8e9b5(bjju5s(!$%*gn7ovft-=l*'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'vb$5-40+!kumgz6t4mk-oh8e9b5(bjju5s(!$%*gn7ovft-=l*')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = []
 
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'imagekit',
+    'phonenumber_field',
 
     # my apps
     'aboutus',

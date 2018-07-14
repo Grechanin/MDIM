@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'imagekit',
+    'phonenumber_field',
 
     # my apps
     'aboutus',
@@ -163,9 +164,10 @@ CKEDITOR_CONFIGS = {
 
 ###################################
 
-
 # PhoneNumberField represintation
-PHONENUMBER_DB_FORMAT = 'E164'
+PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
+
+
 
 CORS_REPLACE_HTTPS_REFERER      = False
 HOST_SCHEME                     = "http://"

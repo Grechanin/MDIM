@@ -23,32 +23,8 @@ def prices(request):
 
 	return render(request, 'prices/prices.html', context)
 
-def test_order(request):
-	service = request.GET
-	print(service)
-
-def orderForm(request):
-	print("jhgjhgjhgj")
-	form = OrderForm(request.POST or None)
-	if form.is_valid():
-		print("go")
-		form.save()
-	# if request.method == "POST":
-	# 	order_name = request.POST.get("order_name")
-	# 	client_name = request.POST.get("client_name")
-	# 	phone_number = request.POST.get("phone_number")
-	# 	email = request.POST.get("email")
-	# 	coment = request.POST.get("coment")
-	# 	OrderModel.objects.create(order_name=order_name, client_name=client_name, phone_number=phone_number,
-	# 		email=email, coment=coment)
-
-	context = {
-		'form': form
-	}
-	return render(request, 'prices/order_form.html', context)
 
 class OrderFormView(FormView):
-    print('1')
     form_class = OrderForm
     template_name  = 'prices/order_form.html'
     success_url = '/prices/'
@@ -56,7 +32,6 @@ class OrderFormView(FormView):
 
     def form_invalid(self, form):
         response = super(OrderFormView, self).form_invalid(form)
-        print("no")
         if self.request.is_ajax():
             
             return JsonResponse(form.errors, status=400)
@@ -66,7 +41,6 @@ class OrderFormView(FormView):
     def form_valid(self, form):
         response = super(OrderFormView, self).form_valid(form)
         form.save()
-        print("good")
         if self.request.is_ajax():
             print(form.cleaned_data)
             data = {

@@ -7,13 +7,15 @@ from projects.models import Project
 def home(request):
 	title = 'Welcome'
 	carousel_imgs = Carousel.objects.filter(is_active=True)
-	home_page_content = InteriorDesign.objects.filter(is_active=True)
-	home_page_title = InteriorDesign.objects.filter(is_active=True).title
+	home_page_content = InteriorDesign.objects.filter(is_active=True)[0]
+	home_page_title = home_page_content.title
+	short_description = home_page_content.short_description
+	home_page_description = home_page_content.description
 	
-	for obj in home_page_content:
-		home_page_title = obj.title
-		short_description = obj.short_description
-		home_page_description = obj.description
+	# for obj in home_page_content:
+	# 	home_page_title = obj.title
+	# 	short_description = obj.short_description
+	# 	home_page_description = obj.description
 
 	last_projects = Project.objects.filter(is_active=True).order_by('-update')[:6]
 

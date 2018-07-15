@@ -7,7 +7,7 @@ from projects.models import Project
 def home(request):
 	title = 'Welcome'
 	carousel_imgs = Carousel.objects.filter(is_active=True)
-	home_page_content = InteriorDesign.objects.filter(is_active=True)[0]
+	home_page_content = InteriorDesign.objects.filter(is_active=True)
 	home_page_title = home_page_content.title
 	short_description = home_page_content.short_description
 	home_page_description = home_page_content.description

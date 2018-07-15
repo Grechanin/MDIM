@@ -8,6 +8,7 @@ def home(request):
 	title = 'Welcome'
 	carousel_imgs = Carousel.objects.filter(is_active=True)
 	home_page_content = InteriorDesign.objects.filter(is_active=True)
+	home_page_title = InteriorDesign.objects.filter(is_active=True).title
 	
 	for obj in home_page_content:
 		home_page_title = obj.title

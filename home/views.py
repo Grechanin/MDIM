@@ -8,9 +8,9 @@ def home(request):
 	title = 'Welcome'
 	carousel_imgs = Carousel.objects.filter(is_active=True)
 	home_page_content = InteriorDesign.objects.filter(is_active=True)
-	home_page_title = home_page_content.title
-	short_description = home_page_content.short_description
-	home_page_description = home_page_content.description
+	# home_page_title = home_page_content.title
+	# short_description = home_page_content.short_description
+	# home_page_description = home_page_content.description
 	
 	# for obj in home_page_content:
 	# 	home_page_title = obj.title
@@ -28,9 +28,9 @@ def home(request):
 	context = {
 		'title': title,
 		'carousel_imgs':carousel_imgs,
-		'home_page_title':home_page_title,
-		'short_description':short_description,
-		'home_page_description':home_page_description,
+		# 'home_page_title':home_page_title,
+		# 'short_description':short_description,
+		# 'home_page_description':home_page_description,
 		'last_projects':last_projects,
 	}
 

@@ -68,8 +68,8 @@
 			{% for img in project.projectimage_set.all|slice:"::2" %}
 				<div class="img-div img-margin-booton-15px">
 					<a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
-	                  <!-- <img src="{{ img.image_thumbnail.url }}" alt="{{ img.image_thumbnail.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom img-padding-booton-15px"> -->
-	                  <img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image_thumbnail.url }}" alt="{{ project.name }}">
+	                  <!-- <img src="{{ img.image.url }}" alt="{{ img.image.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom img-padding-booton-15px"> -->
+	                  <img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image.url }}" alt="{{ project.name }}">
 	                </a>
            		</div>
 
@@ -88,8 +88,8 @@
 			{% for img in project.projectimage_set.all|slice:"1::2" %}
 				<div class="img-div img-margin-booton-15px">
 				<a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
-                  <!-- <img src="{{ img.image_thumbnail.url }}" alt="{{ img.image_thumbnail.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom img-padding-booton-15px "> -->
-                  <img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image_thumbnail.url }}" alt="{{ project.name }}">
+                  <!-- <img src="{{ img.image.url }}" alt="{{ img.image.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom img-padding-booton-15px "> -->
+                  <img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image.url }}" alt="{{ project.name }}">
                 </a>
                 </div>
 					<!-- <div class="project-img">

@@ -70,7 +70,7 @@
 					<a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
 	                  <!-- <img src="{{ img.image.url }}" alt="{{ img.image.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom img-padding-booton-15px"> -->
 	                  {% if img.image %}
-	                  	<img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image.url }}" alt="{{ project.name }}">
+	                  	<img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image_thumbnail.url }}" alt="{{ project.name }}">
 	                  {% endif %}
 	                </a>
            		</div>
@@ -92,7 +92,7 @@
 				<a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
                   <!-- <img src="{{ img.image.url }}" alt="{{ img.image.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom img-padding-booton-15px "> -->
                   {% if img.image %}
-                  	<img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image.url }}" alt="{{ project.name }}">
+                  	<img class="card-img-top-border-radius-0 img-zoom" src="{{ img.image_thumbnail.url }}" alt="{{ project.name }}">
                   {% endif %}
                 </a>
                 </div>

@@ -179,21 +179,7 @@ CKEDITOR_CONFIGS = {
 # imagekit #
 ###################################
 
-class FixJustInTime:
-
-    def on_content_required(self, file):
-        try:
-            file.generate()
-        except:
-            pass
-
-    def on_existence_required(self, file):
-        try:
-            file.generate()
-        except:
-            pass
-
-IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = FixJustInTime()
+IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = 'arthouse.imagekit.imagegenerators.FixJustInTime'
 
 ####################################
 

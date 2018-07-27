@@ -176,6 +176,26 @@ CKEDITOR_CONFIGS = {
 }
 
 ###################################
+# imagekit #
+###################################
+
+class FixJustInTime:
+
+    def on_content_required(self, file):
+        try:
+            file.generate()
+        except:
+            pass
+
+    def on_existence_required(self, file):
+        try:
+            file.generate()
+        except:
+            pass
+
+IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = FixJustInTime()
+
+####################################
 
 CORS_REPLACE_HTTPS_REFERER      = True
 HOST_SCHEME                     = "https://"

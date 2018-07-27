@@ -45,7 +45,7 @@
           <div class="contact">
             {% if contacts.address_title %}
               <h4>{{ contacts.address_title|safe }}</h4>
-              <p>{{ contacts.address|safe }}</p>
+              {{ contacts.address|safe }}
             {% endif %}
           </div>
         </div>
@@ -53,7 +53,7 @@
           <div class="contact">
           {% if contacts.email_title %}
             <h4>{{ contacts.email_title|safe }}</h4>
-            <p>{{ contacts.email|safe }}</p>
+            {{ contacts.email|safe }}
           {% endif %}
          </div>
         </div>
@@ -61,7 +61,7 @@
           <div class="contact">
           {% if contacts.title_phone_for_customers %}
             <h4>{{ contacts.title_phone_for_customers|safe }}</h4>
-            <p>{{ contacts.phone_for_customers|safe }}</p>
+            {{ contacts.phone_for_customers|safe }}
           {% endif %}
           </div>
         </div>
@@ -69,7 +69,7 @@
           <div class="contact">
           {% if contacts.title_phone_for_partners %}
             <h4>{{ contacts.title_phone_for_partners|safe }}</h4>
-            <p>{{ contacts.phone_for_partners|safe }}</p>
+            {{ contacts.phone_for_partners|safe }}
           {% endif %}
           </div>
         </div>

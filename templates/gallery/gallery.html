@@ -49,7 +49,7 @@
             {% for img in first_col %}
               <div class="img-div">
                 <a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ img.project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
-                  <img src="{{ img.image.url }}" alt="{{ img.image.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
+                  <img src="{{ img.image_thumbnail.url }}" alt="{{ img.image_thumbnail.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
                 </a>
               </div>
 
@@ -62,7 +62,7 @@
             {% for img in second_col %}
               <div class="img-div">      
                 <a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ img.project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
-                  <img src="{{ img.image.url }}" alt="{{ img.image.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
+                  <img src="{{ img.image_thumbnail.url }}" alt="{{ img.image_thumbnail.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
                 </a>
               </div>
             {% endfor %}
@@ -74,7 +74,7 @@
             {% for img in third_col %}  
               <div class="img-div">   
                 <a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ img.project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
-                  <img src="{{ img.image.url }}" alt="{{ img.image.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
+                  <img src="{{ img.image_thumbnail.url }}" alt="{{ img.image_thumbnail.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
                 </a>
               </div>
             {% endfor %}
@@ -86,7 +86,7 @@
             {% for img in fourth_col %}
             <div class="img-div">
               <a data-fancybox="gallery" data-options='{"buttons": ["zoom", "slideShow", "fullScreen", "share","close"]}' data-caption="{{ img.project.name }}" href="{{ img.image.url }}" class="outline-focus-none">
-                <img src="{{ img.image.url }}" alt="{{ img.project.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
+                <img src="{{ img.image_thumbnail.url }}" alt="{{ img.project.name }}" class="outline-focus-none thumbnail-img img-fluid img-zoom">
               </a>
             </div>
             {% endfor %}

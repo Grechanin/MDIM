@@ -940,3 +940,122 @@ form input {
     color: #dc3545;
 }
 
+.margin-top-0 {
+    margin-top: 0;
+}
+
+/*GYPSUM*/
+
+.gypsum-price {
+    margin-top: 15px;
+}
+
+.gypsum-description {
+    margin-top: 15px;
+}
+
+.nav-item .nav-padding {
+    padding: 5px 10px !important;
+}
+
+div#dementions > ul {
+    padding-top: 10px;
+}
+
+button#qnt-submit-btn {
+    margin-left: 15px;
+}
+
+/*BASKET*/
+
+.basket-items {
+    position: absolute;
+    background-color: #fbfbfb;;
+    width: 350px;
+    top: 35px;
+    right: 100px;
+}
+
+.basket-items ul {
+    padding: 0;
+    margin: 25px 0 0 0;
+    
+}
+
+.basket-items li {
+    text-transform: none;
+    font-size: 12px;
+}
+
+.basket-img {
+    max-width: 50px;
+    height: auto;
+}
+
+.basket-p {
+    display: inline;
+    margin: 0;
+    padding-left: 5px;
+}
+
+div.basket-items>.basket-btn {
+    color: #f5fbf6 !important;
+    background-color: #28a745;
+    float: right;
+    margin: 0 20px 20px;
+}
+
+div.basket-items>.basket-btn:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/*#basket_total_qnt {
+    color: #202020;
+}
+
+#basket_total_qnt:hover {
+    color: #bebebe !important;
+}*/
+
+.hidden {
+    display: none;
+}
+
+
+/*endBasket*/
+
+
+/*Chekout tabel*/
+
+img.checkout-img {
+    max-height: 50px;
+}
+
+.order-contacts {
+    margin-top: 30px;
+}
+
+.order-table {
+    margin-top: 30px;
+}
+
+input.product-nmb-in-basket {
+    max-width: 43px;
+    height: 30px;
+    text-align: center;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.checkout-form h2 {
+    font-size: 21px;
+    margin-bottom: 14px;
+}
+
+.checkout-title {
+    margin-top: 40px;
+}

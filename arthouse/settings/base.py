@@ -46,10 +46,11 @@ INSTALLED_APPS = [
 
     # my apps
     'aboutus',
-    'blog',
     'contacts',
     'gallery',
+    'gypsumProducts',
     'home',
+    'orders',
     'prices',
     'projects',
 ]
@@ -78,6 +79,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'home.context_processors.favicon',
+                'orders.context_processors.getting_basket_info',
             ],
         },
     },
@@ -161,6 +163,23 @@ CKEDITOR_CONFIGS = {
         'toolbar': None,
     },
 }
+
+
+class FixJustInTime:
+
+    def on_content_required(self, file):
+        try:
+            file.generate()
+        except:
+            pass
+
+    def on_existence_required(self, file):
+        try:
+            file.generate()
+        except:
+            pass
+
+IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = FixJustInTime()
 
 ###################################
 

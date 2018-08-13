@@ -11,16 +11,16 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from arthouse.aws.conf import *
+# from arthouse.aws.conf import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'youremail@gmail.com' 
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'youremail@gmail.com' 
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -29,10 +29,10 @@ EMAIL_USE_TLS = True
 SECRET_KEY = os.environ.get('SECRET_KEY', 'vb$5-40+!kumgz6t4mk-oh8e9b5(bjju5s(!$%*gn7ovft-=l*')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['md1m.herokuapp.com', '.md1m.com']
+ALLOWED_HOSTS = ['*', '.md1m.com']
 
 
 # Application definition
@@ -53,13 +53,14 @@ INSTALLED_APPS = [
 
     # my apps
     'aboutus',
+    'blog',
     'contacts',
     'gallery',
     'gypsumProducts',
     'home',
-    'orders',
     'prices',
     'projects',
+    # 'storages',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'home.context_processors.favicon',
-                'orders.context_processors.getting_basket_info',
             ],
         },
     },
@@ -100,14 +100,18 @@ WSGI_APPLICATION = 'arthouse.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db1',
+        'USER': 'md1m',
+        'PASSWORD': 'G1234567',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+# import dj_database_url
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
 # DATABASES['default']['CONN_MAX_AGE'] = 500
 
 # Password validation
@@ -180,16 +184,16 @@ CKEDITOR_CONFIGS = {
 # imagekit #
 ###################################
 
-IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = 'arthouse.imagekit.imagegenerators.FixJustInTime'
+# IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = 'arthouse.imagekit.imagegenerators.FixJustInTime'
 
 ####################################
 
-CORS_REPLACE_HTTPS_REFERER      = True
-HOST_SCHEME                     = "https://"
-SECURE_PROXY_SSL_HEADER         = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT             = True
-SESSION_COOKIE_SECURE           = True
-CSRF_COOKIE_SECURE              = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
-SECURE_HSTS_SECONDS             = 1000000
-SECURE_FRAME_DENY               = True
+# CORS_REPLACE_HTTPS_REFERER      = True
+# HOST_SCHEME                     = "https://"
+# SECURE_PROXY_SSL_HEADER         = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT             = True
+# SESSION_COOKIE_SECURE           = True
+# CSRF_COOKIE_SECURE              = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
+# SECURE_HSTS_SECONDS             = 1000000
+# SECURE_FRAME_DENY               = True

@@ -10,6 +10,7 @@
   </form>
 </div>
 
+{% block script %}
 
 {% load static %}
 <script src="{% static 'js/intlTelInput.js' %}"></script>
@@ -87,3 +88,4 @@ $(document).ready(function(){
     }
 })
 </script>
+{% endblock script %}

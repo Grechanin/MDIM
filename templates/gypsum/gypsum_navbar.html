@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-md sub-nav-bar-sticky main-background-color d-none d-md-block d-xl-block">
+  <div class="container">
+
+        <ul class="navbar-nav mx-auto">
+          {% for category in categories %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <div class="basket-container text-right">
+
+          <div class="basket">{% csrf_token %}
+            <a href="#">Корзина <span id="basket_total_qnt">
+                {% if total_product_qnt %}
+                    ({{ total_product_qnt }})
+                {% else %}
+                    (0)
+                {% endif %}
+            </span></a>
+          </div>
+
+          <div class="basket-items text-center hidden">
+            <ul>
+              {% for product_in_basket in products_in_basket %}
+                <li>
+                  {% for img in product_in_basket.product.gypsumimage_set.all %}
+                    {% if forloop.first %}                              
+                      <a data-fancybox="gallery" data-options='{"buttons": ["zoom","close"]}' data-caption="{{ products_in_basket.name }}" href="{{ img.image.url }}" class="outline-focus-none">
+                          <img class="basket-img" src="{{ img.image_thumbnail.url }}" />
+                      </a>
+                    {% endif %}
+                  {% endfor %}
+
+
+                  <p class="basket-p">{{ product_in_basket }}, {{ product_in_basket.nmb }} шт. по {{ product_in_basket.price_pre_item }} грн <a class="delete-item" href="#" data-product_id="{{ product_in_basket.product.id }}"><sup title="Видалити">X</sup></a>
+                  </p>
+                </li>
+              {% endfor %}
+            </ul>
+            <a role="button" class="basket-btn btn btn-success btn-sm" href="{% url 'orders:checkout' %}">До оформлення</a>
+          </div>
+        </div>
+        
+
+    </div>
+  </nav>

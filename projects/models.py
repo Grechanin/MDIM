@@ -27,6 +27,7 @@ class ProjectCategory(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True, default=None)
+    tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
     category = models.ForeignKey(ProjectCategory, blank=True, null=True, default=None, on_delete=models.CASCADE)
     short_description = RichTextUploadingField(blank=True, null=True, default=None)
     description = RichTextUploadingField(blank=True, null=True, default=None)
@@ -69,6 +70,7 @@ class ProjectImage(models.Model):
 
 
 class PageProjectsDescription(models.Model):
+    tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
     title = models.CharField(max_length=128, blank=True, null=True)
     sub_title = RichTextUploadingField(max_length=128, blank=True, null=True)
     short_description = RichTextUploadingField(blank=True, null=True, default=None)

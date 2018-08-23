@@ -7,6 +7,7 @@ from imagekit.processors import ResizeToFit
 
 class GypsumCategory(models.Model):
     name = models.CharField(max_length=128, blank=True, null=True, default=None)
+    tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
     title = models.CharField(max_length=128, blank=True, null=True, default=None)
     short_description = RichTextUploadingField(blank=True, null=True, default=None)
     description = RichTextUploadingField(blank=True, null=True, default=None)
@@ -28,6 +29,8 @@ class GypsumCategory(models.Model):
 class GypsumProduct(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True, default=None)
     category = models.ForeignKey(GypsumCategory, blank=True, null=True, default=None, on_delete=models.CASCADE)
+    gypsum_3d_model = models.FileField(upload_to="gypsum_3dmodels/", blank=True, null=True, default=None)
+    tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
     price = models.IntegerField(default=0)
     discount = models.IntegerField(default=0)
     short_description = RichTextUploadingField(blank=True, null=True, default=None)
@@ -71,6 +74,7 @@ class GypsumImage(models.Model):
 
 
 class PageGypsumDescription(models.Model):
+    tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
     title = models.CharField(max_length=128, blank=True, null=True)
     sub_title = RichTextUploadingField(max_length=128, blank=True, null=True)
     short_description = RichTextUploadingField(blank=True, null=True, default=None)

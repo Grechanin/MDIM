@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Gallery(models.Model):
+    tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
     title = models.CharField(max_length=128, blank=True, null=True, default=None)
     short_description = RichTextUploadingField(blank=True, null=True, default=None)
     description = RichTextUploadingField(blank=True, null=True, default=None)

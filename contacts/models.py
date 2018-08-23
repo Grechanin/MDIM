@@ -3,6 +3,8 @@ from django.db import models
 
 
 class Contacts(models.Model):
+
+	tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
 	title = models.CharField(max_length=128, blank=True, null=True, default=None)
 	
 	address_title = RichTextUploadingField(max_length=128, blank=True, null=True, default=None)

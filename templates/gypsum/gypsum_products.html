@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block head_title %} {{ title }} | {{ block.super }} {% endblock %}
+{% block head_title %} {{ tab_title }} {% endblock %}
 
 
 {% block sub_nav_bar %}
@@ -26,13 +26,21 @@
 
 {% block content %}
 
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				{% if title %}
 				<h1 class="text-center page__title">{{ title }}</h1>
 				{% endif %}
+				<div class="basket-container basket-container-sm container d-md-none d-lg-none d-xl-none">
+				    <a href="{% url 'orders:checkout' %}">Кошик <span id="basket_total_qnt">
+				        {% if total_product_qnt %}
+				            ({{ total_product_qnt }})
+				        {% else %}
+				            (0)
+				        {% endif %}
+				    </span></a>
+			    </div>
 				{% if description %}
 				<p>{{ short_description|safe }}</p>
 				{% endif %}

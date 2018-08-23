@@ -1,5 +1,4 @@
 from django import forms
-from phonenumber_field.widgets import PhoneNumberPrefixWidget
 from .models import OrderModel
 
 class OrderForm(forms.ModelForm):
@@ -14,5 +13,9 @@ class OrderForm(forms.ModelForm):
         ]
         widgets = {
             'content': forms.Textarea(attrs={'cols': 80, 'rows': 20}),
-            # 'phone_number': PhoneNumberPrefixWidget(),
         }
+
+    def clean_phone_no(self):
+        data_ph = self.cleaned_data.get('phone_number')
+        return data_ph
+

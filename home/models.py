@@ -20,12 +20,13 @@ class Carousel(models.Model):
 
 
 class InteriorDesign(models.Model):
-	title = models.CharField(max_length=128, blank=True, null=True)
-	short_description = RichTextUploadingField(blank=True, null=True, default=None)
-	description = RichTextUploadingField(blank=True, null=True, default=None)
+	tab_title = models.TextField('Заголовок закладки', blank=True, null=True)
+	title = models.CharField('Заголовок сторінки',max_length=128, blank=True, null=True)
+	short_description = RichTextUploadingField('Короткий опис', blank=True, null=True, default=None)
+	description = RichTextUploadingField('Опис', blank=True, null=True, default=None)
 	is_active = models.BooleanField(default=True)
-	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
-	update = models.DateTimeField(auto_now=True, auto_now_add=False)
+	timestamp = models.DateTimeField('Створено', auto_now=False, auto_now_add=True)
+	update = models.DateTimeField('Оновлено', auto_now=True, auto_now_add=False)
 
 	def __str__(self):
 		return self.title

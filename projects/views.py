@@ -6,19 +6,14 @@ def projects(request):
 	categories = ProjectCategory.objects.filter(is_active=True)
 
 	title_description_model = PageProjectsDescription.objects.filter(is_active=True)[0]
-	print(title_description_model)
+	tab_title = title_description_model.tab_title
 	title = title_description_model.title
 	short_description = title_description_model.short_description
 	description = title_description_model.description
 	
 	projects = Project.objects.filter(is_active=True)
-	# category_title = ProjectCategory.
-	# category_description
-	# print(projects)
-	# if project.category.name == 'Проекти':
-	# 	category_title = 
-	# 	category_description
 	context = {
+			'tab_title': tab_title,
 			'categories': categories,
 			'title': title,
 			'short_description':short_description,
@@ -47,10 +42,14 @@ def projects_in_category(request, id=None):
 	categories = ProjectCategory.objects.filter(is_active=True)
 	category = get_object_or_404(ProjectCategory, id=id)
 	projects_in_category = Project.objects.filter(is_active=True, category_id = id)
+
+	title_description_model = PageProjectsDescription.objects.filter(is_active=True)[0]
+	tab_title = title_description_model.tab_title
 	context = {
 			'categories': categories,
 			'category':category,
 			'projects_in_category': projects_in_category,
+			'tab_title': tab_title,
 		}
 
 	return render(request, 'projects/projects_in_category.html', context)

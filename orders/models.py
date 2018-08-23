@@ -1,6 +1,7 @@
 from django.db import models
-from gypsumProducts.models import GypsumProduct
 from django.db.models.signals import post_save, post_delete
+from gypsumProducts.models import GypsumProduct
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Status(models.Model):
@@ -18,10 +19,10 @@ class Status(models.Model):
 
 
 class Order(models.Model):
-    name = models.CharField("І'мя", max_length=128, blank=True, null=True, default=None)
+    name = models.CharField("І'мя", max_length=128, blank=False, null=False, default=None)
     total_price = models.DecimalField(max_digits=10, decimal_places=0, default=0)#total price for all products in order
-    email = models.EmailField()
-    phone = models.CharField("Телефон", max_length=64, blank=True, null=True, default=None)
+    email = models.EmailField(max_length=64, blank=True, null=True)
+    phone = PhoneNumberField("Телефон", max_length=64, blank=True, null=True, default=None)
     delivery_address = models.CharField("Адреса доставки", max_length=128, blank=True, null=True, default=None)
     comments = models.TextField("Коментар", blank=True, null=True, default=None)
     status = models.ForeignKey(Status, on_delete=models.CASCADE)

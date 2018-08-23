@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Дизайнерская студия, лучшие цены на услуги дизайнера в Украине, Дизайн интерьера - заказать проект для дома и офиса - Misteckiy Dim">
+    <meta name="description" content="Дизайн інтер'єру, сучасна гіпсова ліпнина ручної роботи - MISTECKIY DIM">
     <meta name="author" content="Igor Smolinskiy">
     <link rel="icon" href="{{ favicon.favicon.url }}">
+    {% block meta_tags %} {% endblock meta_tags %}
 
-    <title>{% block head_title %} MDIM {% endblock head_title %}</title>
+    <title>{% block head_title %}  {% endblock head_title %}</title>
 
 
     {% include 'head_css.html' %}
@@ -34,9 +35,11 @@
 
       <main role="main">
 
-        {% block breadcrumb %}
+        <div class="d-none d-md-block">
+          {% block breadcrumb %}
 
-        {% endblock breadcrumb %}
+          {% endblock breadcrumb %}
+        </div>
 
         <!-- Main jumbotron for a primary marketing message or call to action -->
         {% block jumbotron_content %}
@@ -55,8 +58,6 @@
     </div>
 
    {% include 'js.html' %}
-
-    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
 
     {% block script %}
 

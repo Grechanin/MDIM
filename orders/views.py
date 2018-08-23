@@ -1,5 +1,8 @@
+from arthouse.settings import base
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.template import loader
 from .forms import CheckoutContactForm
 from .models import *
 
@@ -62,10 +65,13 @@ def checkout(request):
             title = "Дякуємо за замовлення!"
             sub_title = "З вами невдовзі сконтактують"
             data = request.POST
-            name = data['client_name']
-            phone = data['phone']
+            name = data['name']
+            phone = data['phone'] 
             email = data['email']
             comments = data['comments']
+
+
+
             # user, created = User.objects.get_or_create(username=phone, defaults={'first_name':name})
             # order = Order.objects.create(user=user, name=name, phone=phone, status_id=1)
             order = Order.objects.create(name=name, phone=phone, email=email, comments=comments, status_id=1)
@@ -81,6 +87,44 @@ def checkout(request):
                     ProductInOrder.objects.create(product=product_in_basket.product, nmb=product_in_basket.nmb,
                                                   price_pre_item=product_in_basket.price_pre_item, total_price=product_in_basket.total_price,
                                                   order=order)
+
+            client_subject = 'Ваше замовлення прийнято' 
+            client_message = '%s дякуємо за Ваше замовлення! \nМи сконтактуємо з Вами найблищим часом для підтвердження замовлення.' % name
+            
+            from_email = base.EMAIL_HOST_USER
+            to_client_email = [email]
+            send_mail(
+                client_subject,
+                client_message,
+                from_email,
+                to_client_email,
+                fail_silently=False,
+            )
+
+            admin_subject = 'Нове замовлення ліпнини від %s' % name
+            admin_massege = 'Клієнт: %s \nТелефон: %s \nEmail: %s \nКоментар: %s' % (name, 
+                                                                                        phone,
+                                                                                        email,
+                                                                                        comments
+                                                                                        )
+            products_in_order = ProductInOrder.objects.filter(order=order)
+            html_message = loader.render_to_string(
+                                                    'orders/email_massege.html',
+                                                    {
+                                                        'products_in_order': products_in_order,
+                                                        'order':  order, 
+                                                    }
+                                                )
+            
+            to_admin_email = [base.EMAIL_HOST_USER]
+            send_mail(
+                admin_subject,
+                admin_massege,
+                from_email,
+                to_admin_email,
+                fail_silently=False,
+                html_message=html_message,
+            )
 
         else:
             print("Form isn't valid!!!")

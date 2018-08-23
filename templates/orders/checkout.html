@@ -11,25 +11,29 @@
                         <h2 class="text-center">Контактні данні</h2>
                         <div class="row">
                             <div class="col-md-6">
-                                {% if form.errors.client_name %}                
-                                    <input id="client-name" type="text" placeholder="Ім'я обов'язкове" class="form-control" name="{{ form.client_name.html_name }}" value="{{ request.POST.client_name }}" style="border-color: red; margin-bottom: 5px;">
+                                {% if form.errors.name %}                
+                                    <input id="client-name" type="text" placeholder="Ім'я обов'язкове" class="form-control" name="{{ form.name.html_name }}" value="{{ request.POST.name }}" style="border-color: red; margin-bottom: 5px;">
                                 {% else %}
-                                    <input id="client-name" type="text" placeholder="Ім'я" class="form-control" name="{{ form.client_name.html_name }}" value="{{ request.POST.client_name }}">
+                                    <input id="client-name" type="text" placeholder="Ім'я" class="form-control" name="{{ form.name.html_name }}" value="{{ request.POST.name }}">
                                 {% endif %}
 
                                 {% if form.errors.phone %}
                                     <input id="phone" type="text" placeholder="Телефон обов'язковий" class="form-control" name="{{ form.phone.html_name }}" value="{{ request.POST.phone }}" style="border-color: red; margin-bottom: 5px;">
+                                    <span>Введіть вірний номер</span>
                                 {% else %}
                                     <input id="phone" type="text" placeholder="Телефон" class="form-control" name="{{ form.phone.html_name }}" value="{{ request.POST.phone }}">
                                 {% endif %}
 
-                                <input id="email" type="email" placeholder="Е-mail" class="form-control" name="{{ form.email.html_name }}" value="{{ request.POST.email }}">
-                                {{ form.errors.email }}
+                                {% if form.errors.email %}
+                                    <input id="email" type="email" placeholder="Введіть вірний e-mail" class="form-control" name="{{ form.email.html_name }}" value="{{ request.POST.email }}" style="border-color: red; margin-bottom: 5px;">
+                                    <span>Введіть вірний e-mail</span>
+                                {% else %}
+                                    <input id="email" type="email" placeholder="Е-mail" class="form-control" name="{{ form.email.html_name }}" value="{{ request.POST.email }}">
+                                {% endif %}
                             </div>
 
                             <div class="col-md-6">
-                                <textarea  id="comments" rows="4" placeholder="Коментар" class="form-control" name="{{ form.comments.html_name }}" value="{{ request.POST.comments }}"></textarea>
-                                {{ form.errors.comments }}
+                                <textarea  id="comments" rows="4" placeholder="Коментар" class="form-control" name="{{ form.comments.html_name }}">{{ request.POST.comments }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -96,3 +100,22 @@
     </div>
 
 {% endblock content %}
+
+{% block script %}
+
+{% load static %}
+<script src="{% static 'js/intlTelInput.js' %}"></script>
+<script src="{% static 'js/utils.js' %}"></script>
+<script>
+    $("#phone").intlTelInput({placeholderNumberType: "off", initialCountry: "UA", preferredCountries: [] })
+    var countryData = $("#phone").intlTelInput("getSelectedCountryData");
+    var int_code = countryData.dialCode
+    $("#phone").intlTelInput("setNumber", "+"+int_code);
+
+    $("#phone").on("countrychange", function(e, countryData) {
+    var int_code = countryData.dialCode
+    $("#phone").intlTelInput("setNumber", "+"+int_code);
+    });
+</script>
+
+{% endblock script %}

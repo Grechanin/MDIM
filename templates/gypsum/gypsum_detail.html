@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block head_title %}Проекти | {{ block.super }} {% endblock %}
+{% block head_title %} {{ tab_title }} {% endblock %}
 
 {% block sub_nav_bar %}
 
@@ -28,6 +28,16 @@
 
 
 {% block content %}
+<br>
+<div class="basket-container basket-container-sm container d-md-none d-lg-none d-xl-none">
+    <a href="{% url 'orders:checkout' %}">Кошик <span id="basket_total_qnt">
+        {% if total_product_qnt %}
+            ({{ total_product_qnt }})
+        {% else %}
+            (0)
+        {% endif %}
+    </span></a>
+</div>
 
 	<div class="container">
 		<div class="row">
@@ -43,7 +53,7 @@
 				  </ul>
 				</div>
 				{% if gypsum_product.gypsumimage_set.all.1 %}
-				<div id="carousel" class="flexslider">
+				<div id="carousel" class="flexslider d-none d-md-block d-xl-block">
 				  <ul class="slides">
 					{% for img in gypsum_product.gypsumimage_set.all %}
 					    <li>
@@ -90,17 +100,22 @@
 
 				<form action="{% url 'orders:basket_adding' %}" class="form-inline" id="form_buying_product">{% csrf_token %}
 					<div class="form-group">
-						<input type="number" min="1" id="product-qnt-input" class="form-control product-qnt-input" placeholder="Оберіть кількість">
+						<input type="number" min="1" value="1" id="product-qnt-input" class="form-control product-qnt-input" placeholder="Оберіть кількість">
 					</div>
 
 					<div class="form-group">
 						<button type="submit" id="qnt-submit-btn" class="btn btn-success qnt-submit-btn"
 						data-product_id='{{ gypsum_product.id }}'
 						data-name='{{ gypsum_product.name }}'
-						data-price='{{ gypsum_product.price }}'>До корзини</button>
+						data-price='{{ gypsum_product.price }}'>До кошика</button>
 					</div>
 				</form>
-			
+
+				{% if gypsum_product.gypsum_3d_model %}
+					<br>
+					<a href="{{ gypsum_product.gypsum_3d_model.url }}" download>Скачати 3D модель</a>
+				{% endif %}
+				</div>
 			</div>
 		</div>
 

@@ -5,6 +5,7 @@ from projects.models import ProjectImage
 def gallery(request):
 	gallery = Gallery.objects.filter(is_active=True)[0]
 
+	tab_title = gallery.tab_title
 	title = gallery.title
 	short_description = gallery.short_description
 	description = gallery.description
@@ -20,6 +21,7 @@ def gallery(request):
 	fourth_col = imgs[3::4]
 	# print(fourth_col)
 	context = {
+			'tab_title': tab_title,
 			'title': title,
 			'description': description,
 			'short_description': short_description,

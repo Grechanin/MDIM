@@ -17,8 +17,8 @@ from arthouse.aws.conf import *
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'youremail@gmail.com' 
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'misteckiy.office@gmail.com' 
+EMAIL_HOST_PASSWORD = 'igorsan8891801D'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

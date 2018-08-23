@@ -1,6 +1,8 @@
 credentials.csv
 accessKeys.csv
 arthouse/settings/local2.py
+arthouse/settings/production.py
+arthouse/settings/production-digitalOcean.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
